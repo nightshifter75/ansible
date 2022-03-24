@@ -1,8 +1,0 @@
----
-- name: Playbook Example
-  hosts: all
-  tasks:
-    - name: test
-      debug:
-        msg: hello world
-...
