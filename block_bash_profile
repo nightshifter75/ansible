@@ -21,4 +21,4 @@ export LANG=en_US.UTF-8
 eval $(ssh-agent)
 ssh-add
 clear
-neofetch
+neofetch --color_blocks off
