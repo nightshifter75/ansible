@@ -1,0 +1,15 @@
+---
+- name: Install packages
+  hosts: localhost
+
+  tasks:
+
+    - name: Messages for packages installation
+      debug:
+        msg: "Update all packages"
+
+    - name: RPM
+      yum:
+        name: '*'
+        state: latest
+...

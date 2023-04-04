@@ -1,0 +1,16 @@
+---
+- name: sudo visudo
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: Create sudoer file for ansible
+    copy:
+      content: 'ansible ALL=(ALL) NOPASSWD: ALL'
+      dest: /etc/sudoers.d/ansible
+      owner: root
+      group: root
+      mode: ug+rwX,o=
+      force: yes
+      validate: visudo -cf %s
+...

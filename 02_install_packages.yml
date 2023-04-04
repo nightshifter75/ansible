@@ -1,0 +1,30 @@
+---
+- name: Install packages
+  hosts: rpm,apt
+
+  vars:
+    packages:
+      - tree
+      - nmap
+      - telnet
+      - htop
+      - neofetch
+
+  tasks:
+
+    - name: Messages for packages installation
+      debug:
+        msg: "Installing {{ packages }}"
+
+    - name: RPM
+      yum:
+        name: "{{ packages }}"
+        state: latest
+      when: '"rpm" in group_names'
+
+    - name: APT
+      apt:
+        name: "{{ packages }}"
+        state: latest
+      when: '"apt" in group_names'
+...
