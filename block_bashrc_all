@@ -1,2 +1,2 @@
 alias echolor='echo -e'
-alias colori='env | grep COLOR_ | sort'
+alias colors='env | grep COLOR_ | sort'

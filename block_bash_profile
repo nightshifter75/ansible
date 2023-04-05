@@ -16,8 +16,6 @@ export COLOR_CYAN='\e[0;36m'
 export COLOR_LIGHT_CYAN='\e[1;36m'
 export COLOR_LIGHT_GRAY='\e[0;37m'
 export COLOR_WHITE='\e[1;37m'
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
 eval $(ssh-agent)
 ssh-add
 clear
