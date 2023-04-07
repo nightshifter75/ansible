@@ -1,6 +1,0 @@
-alias echolor='echo -e'
-alias colori='env | grep COLOR_ | sort'
-alias run='ansible-playbook'
-alias syn='ansible-playbook --syntax-check'
-alias pun='ansible-playbook --vault-password-file=vault'
-alias pyn='ansible-playbook --syntax-check --vault-password-file=vault'
