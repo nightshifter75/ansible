@@ -1,0 +1,92 @@
+---
+- name: Install packages
+  hosts: all
+  become: yes
+
+  vars:
+    packages:
+      - tree
+      - nmap
+      - telnet
+      - htop
+      - neofetch
+      - vim
+    distro: "{{ ansible_facts['distribution'] }}"
+    version: "{{ ansible_facts['distribution_major_version'] }}"
+
+  tasks:
+
+    - name: Messages for packages installation
+      debug:
+        msg: "Installing {{ packages }}"
+
+    - name: Subscription Manager for RHEL-based distro
+      community.general.redhat_subscription:
+        state: present
+        username: gcherubini75
+        password: N3wL1f3!!
+        auto_attach: true
+      when:
+        - distro == "RedHat"
+
+    - name: Enable Codeready Builder for RHEL 8
+      community.general.rhsm_repository:
+        name: codeready-builder-for-rhel-8-x86_64-rpms
+        state: enabled
+      when:
+        - distro == "RedHat"
+        - version == "8"
+
+    - name: Enable Codeready Builder for RHEL 9
+      community.general.rhsm_repository:
+        name: codeready-builder-for-rhel-9-x86_64-rpms
+        state: enabled
+      when:
+        - distro == "RedHat"
+        - version == "9"
+
+    - name: Install EPEL 9
+      dnf:
+        name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+        state: present
+        disable_gpg_check: yes
+      when:
+        - distro == "RedHat"
+        - version == "9"
+
+    - name: Install EPEL 8
+      dnf:
+        name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+        state: present
+        disable_gpg_check: yes
+      when:
+        - distro == "RedHat"
+        - version == "8"
+
+    - name: RPM-based packages
+      dnf:
+        name: "{{ packages }}"
+        state: latest
+      when:
+        - distro == "RedHat" or distro == "Fedora"
+
+    - name: APT-based packages
+      apt:
+        name: "{{ packages }}"
+        state: latest
+      when:
+        - distro == "Ubuntu" or distro == "Debian"
+
+    - name: Intall insights-client for RHEL-based distro
+      dnf:
+        name: insights-client
+        state: latest
+      when:
+        - distro == "RedHat"
+
+    - name: Register the insights client for RHEL-based distro
+      command:
+        cmd: insights-client --register
+      when:
+        - distro == "RedHat"
+...

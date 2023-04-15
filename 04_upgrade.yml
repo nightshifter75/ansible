@@ -1,0 +1,29 @@
+---
+- name: Update Packages
+  hosts: all
+  become: yes
+
+  vars:
+    distro: "{{ ansible_facts['distribution'] }}"
+    version: "{{ ansible_facts['distribution_major_version'] }}"
+
+  tasks:
+
+    - name: Messages for packages installation
+      debug:
+        msg: "Update all packages"
+
+    - name: RPM-based distros
+      dnf:
+        name: '*'
+        state: latest
+      when:
+        - distro == "RedHat" or distro == "Fedora"
+
+    - name: APT-based distros
+      apt:
+        name: '*'
+        state: latest
+      when:
+        - distro == "Ubuntu" or distro == "Debian"
+...

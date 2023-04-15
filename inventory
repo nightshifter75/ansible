@@ -1,0 +1,15 @@
+localhost
+
+[rpm]
+redhat
+fedora
+
+[apt]
+ubuntu
+debian
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=ansible
+ansible_ssh_pass=ansible
+ansible_become_pass=ansible
