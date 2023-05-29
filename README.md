@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @nightshifter75
-- 👀 I’m interested in Red Hat Products: Enterprise Linux, Ansible, OpenShift and OpenStack.
+- 👀 I’m interested in Red Hat Products: Enterprise Linux, Ansible, Satellite and OpenStack.
 - ✨ I am a RHCSA since March 15th, 2022.
 - 🌱 I am a RHCE since April 11th, 2022.
 - 🧩 I am a RHCSCK since May 24th, 2022.
