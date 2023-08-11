@@ -63,12 +63,35 @@
         - distro == "RedHat"
         - version == "8"
 
-    - name: RPM-based packages
+    - name: Install EPEL 7
+      yum:
+        name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+        state: present
+        disable_gpg_check: yes
+      when:
+        - distro == "RedHat" or distro == "CentOS"
+        - version == "7"
+
+    - name: RPM-based packages with DNF
       dnf:
         name: "{{ packages }}"
         state: latest
       when:
         - distro == "RedHat" or distro == "Fedora"
+
+    - name: RPM-based packages with YUM for CentOS legacy systems
+      yum:                    
+        name: "{{ packages }}"
+        state: latest         
+      when:                   
+        - distro == "CentOS"
+        - version == "7"
+
+    - name: RPM-based packages with YUM for CentOS legacy systems for neofetch
+      command: curl -o /etc/yum.repos.d/konimex-neofetch-epel-7.repo https://copr.fedorainfracloud.org/coprs/konimex/neofetch/repo/epel-7/konimex-neofetch-epel-7.repo
+      when:
+        - distro == "CentOS"                                        
+        - version == "7"                                            
 
     - name: APT-based packages
       apt:

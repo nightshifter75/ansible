@@ -13,12 +13,20 @@
       debug:
         msg: "Update all packages"
 
-    - name: RPM-based distros
+    - name: RPM-based distros with DNF
       dnf:
         name: '*'
         state: latest
       when:
         - distro == "RedHat" or distro == "Fedora"
+
+    - name: RPM-based distros with YUM for CentOS legacy systems
+      yum:
+        name: '*'
+        state: latest
+      when:
+        - distro == "CentOS"
+        - version == "7"
 
     - name: APT-based distros
       apt:
