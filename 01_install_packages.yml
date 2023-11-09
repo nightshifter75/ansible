@@ -77,7 +77,7 @@
         name: "{{ packages }}"
         state: latest
       when:
-        - distro == "RedHat" or distro == "Fedora"
+        - distro == "RedHat"
 
     - name: RPM-based packages with YUM for CentOS legacy systems
       yum:                    
@@ -98,7 +98,7 @@
         name: "{{ packages }}"
         state: latest
       when:
-        - distro == "Ubuntu" or distro == "Debian"
+        - distro == "Ubuntu"
 
     - name: Intall insights-client for RHEL-based distro
       dnf:
