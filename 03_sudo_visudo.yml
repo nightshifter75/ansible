@@ -5,10 +5,10 @@
 
   tasks:
 
-  - name: Create sudoer file for cherubini
+  - name: Create sudoer file for ansible
     copy:
-      content: 'cherubini ALL=(ALL) NOPASSWD: ALL'
-      dest: /etc/sudoers.d/cherubini
+      content: 'ansible ALL=(ALL) NOPASSWD: ALL'
+      dest: /etc/sudoers.d/ansible
       owner: root
       group: root
       mode: ug+rwX,o=
