@@ -34,5 +34,5 @@
         name: '*'
         state: latest
       when:
-        - distro == "Ubuntu" or distro == "Debian"
+        - distro == "Ubuntu"
 ...
