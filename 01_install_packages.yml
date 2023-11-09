@@ -23,8 +23,8 @@
     - name: Subscription Manager for RHEL-based distro
       community.general.redhat_subscription:
         state: present
-        username: gcherubini75
-        password: N3wL1f3!!
+        username: username
+        password: password
         auto_attach: true
       when:
         - distro == "RedHat"
