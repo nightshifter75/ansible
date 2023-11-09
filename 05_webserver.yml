@@ -1,6 +1,6 @@
 ---
 - name: Enable web services
-  hosts: rpm
+  hosts: localhost
   become: true
   tasks:
 
