@@ -6,7 +6,7 @@
 
     - name: .bashrc lines
       blockinfile:
-        path: /home/ansible/.bashrc
+        path: /home/parallels/.bashrc
         block: "{{ lookup('file', 'block_bashrc') }}"
         state: present
         backup: yes
@@ -15,7 +15,7 @@
       block:
         - name: Add lines to an existing .bash_profile file
           blockinfile:
-            path: /home/ansible/.bash_profile
+            path: /home/parallels/.bash_profile
             block: "{{ lookup('file', 'block_bash_profile') }}"
             state: present
             backup: yes
@@ -23,7 +23,7 @@
         - name: If .bash_profile does not exists, I create one
           copy:
             src: block_bash_profile
-            dest: /home/ansible/.bash_profile
+            dest: /home/parallels/.bash_profile
       always:
         - name: Say something!
           debug:
@@ -32,6 +32,6 @@
     - name: .vimrc file
       copy:
         src: block_vimrc
-        dest: /home/ansible/.vimrc
+        dest: /home/parallels/.vimrc
         backup: yes
 ... 
