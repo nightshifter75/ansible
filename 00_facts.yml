@@ -3,16 +3,16 @@
   hosts: all
 
   vars:
-    fqdn: "{{ ansible_facts['fqdn'] }}"
+    hostname: "{{ ansible_facts['hostname'] }}"
     ipv4: "{{ ansible_facts['all_ipv4_addresses'] }}"
     distro: "{{ ansible_facts['distribution'] }}"
     version: "{{ ansible_facts['distribution_version'] }}"
     mem: "{{ ansible_facts['memtotal_mb'] }}"
     cpus: "{{ ansible_facts['processor_vcpus'] }}"
-    arc: "{{ ansible_facts['userspace_architecture'] }}"
+    arc: "{{ ansible_facts['architecture'] }}"
 
   tasks:
     - name: print out variables
       debug:
-        msg: "{{ distro }} - {{ version }} - {{ arc }} --> {{ fqdn }} - {{ ipv4 }} - RAM {{ mem }}MB - CPUs {{ cpus }}"
+        msg: "{{ distro }} - {{ version }} - {{ arc }} – {{ hostname }} - {{ ipv4 }} - RAM {{ mem }}MB - CPUs {{ cpus }}"
 ...
