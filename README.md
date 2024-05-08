@@ -6,5 +6,5 @@
 - ⚔️  I am a Dungeon Master since 1990.
 - 🎸 I am a Bass Player since 1990.
 - 👾 I am a videogame enthusiast since 1980.
-- 💞️ I’m looking to collaborate with other DevOps/Sysadmins/IT Architects.
+- 💞️ I’m looking to collaborate with other devops/sysadmins/architects.
 - 📫 How to reach me: gianluca . cherubini @ gmail . com
