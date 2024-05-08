@@ -18,16 +18,7 @@
         name: '*'
         state: latest
       when:
-        - distro == "RedHat"
-        - version == "8" or version == "9"
-
-    - name: RPM-based distros with YUM for CentOS legacy systems
-      yum:
-        name: '*'
-        state: latest
-      when:
-        - distro == "CentOS" or distro == "RedHat"
-        - version == "7"
+        - distro == "RedHat" or distro == "Fedora"
 
     - name: APT-based distros
       apt:
