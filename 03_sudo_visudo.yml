@@ -5,10 +5,10 @@
 
   tasks:
 
-  - name: Create sudoer file for ansible
+  - name: Create sudoer file for parallels
     copy:
-      content: 'ansible ALL=(ALL) NOPASSWD: ALL'
-      dest: /etc/sudoers.d/ansible
+      content: 'parallels ALL=(ALL) NOPASSWD: ALL'
+      dest: /etc/sudoers.d/parallels
       owner: root
       group: root
       mode: ug+rwX,o=
