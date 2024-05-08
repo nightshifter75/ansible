@@ -1,14 +1,12 @@
-localhost
-
 [rpm]
-centos
 redhat
+fedora
 
 [apt]
 ubuntu
 
 [all:vars]
 ansible_connection=ssh
-ansible_user=ansible
-ansible_ssh_pass=ansible
-ansible_become_pass=ansible
+ansible_user=parallels
+ansible_ssh_pass=N3wL1f3!!
+ansible_become_pass=N3wL1f3!!
