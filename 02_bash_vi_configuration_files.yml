@@ -4,13 +4,6 @@
 
   tasks:
 
-    - name: .bashrc lines
-      blockinfile:
-        path: /home/parallels/.bashrc
-        block: "{{ lookup('file', 'block_bashrc') }}"
-        state: present
-        backup: yes
-
     - name: .bash_profile lines
       block:
         - name: Add lines to an existing .bash_profile file
