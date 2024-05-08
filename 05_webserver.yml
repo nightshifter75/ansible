@@ -1,6 +1,6 @@
 ---
 - name: Enable web services
-  hosts: localhost
+  hosts: redhat
   become: true
   tasks:
 
@@ -36,7 +36,7 @@
         state: started
 
 - name: Test web server
-  hosts: localhost
+  hosts: redhat
   become: false
   tasks:
 
