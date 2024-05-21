@@ -9,10 +9,10 @@
     version: "{{ ansible_facts['distribution_version'] }}"
     mem: "{{ ansible_facts['memtotal_mb'] }}"
     cpus: "{{ ansible_facts['processor_vcpus'] }}"
-    arc: "{{ ansible_facts['architecture'] }}"
+    arch: "{{ ansible_facts['architecture'] }}"
 
   tasks:
     - name: print out variables
       debug:
-        msg: "{{ distro }} - {{ version }} - {{ arc }} – {{ hostname }} - {{ ipv4 }} - RAM {{ mem }}MB - CPUs {{ cpus }}"
+        msg: "{{ distro }} - {{ version }} - {{ arch }} – {{ hostname }} - {{ ipv4 }} - RAM {{ mem }}MB - CPUs {{ cpus }}"
 ...
