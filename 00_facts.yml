@@ -14,5 +14,5 @@
   tasks:
     - name: print out variables
       debug:
-        msg: "{{ distro }} - {{ version }} - {{ arch }} – {{ hostname }} - {{ ipv4 }} - RAM {{ mem }}MB - CPUs {{ cpus }}"
+        msg: "{{ distro }} {{ version }} ({{ arch }}) – {{ hostname }} - {{ ipv4 }} - RAM {{ mem }}MB - CPUs {{ cpus }}"
 ...
