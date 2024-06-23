@@ -1,6 +1,6 @@
 ---
 - name: Install packages
-  hosts: all
+  hosts: rpm,apt
   become: yes
 
   vars:
@@ -42,7 +42,7 @@
         name: "{{ packages }}"
         state: latest
       when:
-        - distro == "Ubuntu"
+        - distro == "Ubuntu" or distro == "Debian"
 
     - name: Intall insights-client for RHEL-based distro
       dnf:
