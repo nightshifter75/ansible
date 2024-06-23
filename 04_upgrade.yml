@@ -1,6 +1,6 @@
 ---
 - name: Update Packages
-  hosts: all
+  hosts: rpm,apt
   become: yes
 
   vars:
@@ -25,5 +25,5 @@
         name: '*'
         state: latest
       when:
-        - distro == "Ubuntu"
+        - distro == "Ubuntu" or distro == "Debian"
 ...
