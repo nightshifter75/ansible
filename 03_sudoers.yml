@@ -1,6 +1,6 @@
 ---
 - name: sudoers
-  hosts: all
+  hosts: rpm,apt
   become: yes
 
   tasks:
