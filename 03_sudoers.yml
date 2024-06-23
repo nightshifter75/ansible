@@ -1,29 +1,17 @@
 ---
-- name: Update Packages
+- name: sudoers
   hosts: rpm,apt
   become: yes
 
-  vars:
-    distro: "{{ ansible_facts['distribution'] }}"
-    version: "{{ ansible_facts['distribution_major_version'] }}"
-
   tasks:
 
-    - name: Messages for packages installation
-      debug:
-        msg: "Update all packages"
-
-    - name: RPM-based distros with DNF
-      dnf:
-        name: '*'
-        state: latest
-      when:
-        - distro == "RedHat" or distro == "Fedora"
-
-    - name: APT-based distros
-      apt:
-        name: '*'
-        state: latest
-      when:
-        - distro == "Ubuntu" or distro == "Debian"
+  - name: Create sudoers file for ansible
+    copy:
+      content: 'ansible ALL=(ALL) NOPASSWD: ALL'
+      dest: /etc/sudoers.d/ansible
+      owner: root
+      group: root
+      mode: ug+rwX,o=
+      force: yes
+      validate: visudo -cf %s
 ...
