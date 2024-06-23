@@ -4,7 +4,8 @@
 
   vars:
     hostname: "{{ ansible_facts['hostname'] }}"
-    ipv4: "{{ ansible_facts['all_ipv4_addresses'] }}"
+    ipv4: "{{ ansible_facts['default_ipv4']['address'] }}"
+    winipv4: "{{ ansible_facts['ip_addresses'] }}"
     distro: "{{ ansible_facts['distribution'] }}"
     version: "{{ ansible_facts['distribution_version'] }}"
     mem: "{{ ansible_facts['memtotal_mb'] }}"
@@ -15,4 +16,12 @@
     - name: print out variables
       debug:
         msg: "{{ distro }} {{ version }} ({{ arch }}) – {{ hostname }} - {{ ipv4 }} - RAM {{ mem }}MB - CPUs {{ cpus }}"
+      when:
+        distro == "RedHat" or distro == "Fedora" or distro == "Ubuntu" or distro == "MacOSX" or distro == "Debian"
+
+    - name: print out variables
+      debug:
+        msg: "{{ distro }} {{ version }} ({{ arch }}) – {{ hostname }} - {{ winipv4 }} - RAM {{ mem }}MB - CPUs {{ cpus }}"
+      when:
+        distro == "Microsoft Windows 11 Pro"
 ...
