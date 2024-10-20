@@ -1,33 +1,15 @@
-[local]
-localhost
-
 [rpm]
-redhat
-fedora
+rhel0810
+rhel0904
+fedora40
 
 [apt]
-ubuntu
-debian
-
-[lnx:children]
-local
-rpm
-apt
-
-[win]
-windows
+debian12
+ubun2404
+ubun2410
 
 [all:vars]
 ansible_connection = ssh
 ansible_user = ansible
 ansible_ssh_pass = ansible
 ansible_become_pass = ansible
-
-[lnx:vars]
-remote_tmp = /tmp
-become_method = sudo
-
-[win:vars]
-remote_tmp = c:\temp
-become_method = runas
-ansible_shell_type = cmd
