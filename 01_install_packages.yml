@@ -30,6 +30,15 @@
         - distro == "RedHat"
         - version == "9"
 
+    - name: Install EPEL 8
+      yum:
+        name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+        state: present
+        disable_gpg_check: yes
+      when:
+        - distro == "RedHat"
+        - version == "8"
+
     - name: RPM-based packages with DNF
       dnf:
         name: "{{ packages }}"
