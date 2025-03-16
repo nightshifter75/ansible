@@ -1,12 +1,10 @@
 [rpm]
 rhel0810
-rhel0904
-fedora40
+rhel0905
 
 [apt]
 debian12
 ubun2404
-ubun2410
 
 [all:vars]
 ansible_connection = ssh
