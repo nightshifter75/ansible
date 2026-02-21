@@ -1,4 +1,7 @@
 alias top='htop'
+alias run='ansible-playbook'
+alias pinga='ansible -m ping all -o'
+alias timea='ansible -m command -a uptime all -o'
 export PS1='\[\e[1;31m\]\d \[\e[1;35m\]\t \[\e[1;33m\]\u\[\e[0;33m\]@\[\e[1;32m\]\h:\[\e[1;36m\]\w\$ \[\e[0m\]'
 export COLOR_NOCOLOR='\e[0m'
 export COLOR_BLACK='\e[0;30m'
