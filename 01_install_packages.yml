@@ -9,7 +9,7 @@
       - nmap
       - telnet
       - htop
-      - neofetch
+      - fastfetch
       - vim
     distro: "{{ ansible_facts['distribution'] }}"
     version: "{{ ansible_facts['distribution_major_version'] }}"

@@ -1,0 +1,29 @@
+---
+- name: Install packages
+  hosts: rpm
+  become: yes
+
+  vars:
+    packages:
+      - tree
+      - nmap
+      - telnet
+      - htop
+      - fastfetch
+    distro: "{{ ansible_facts['distribution'] }}"
+    version: "{{ ansible_facts['distribution_major_version'] }}"
+    arc: "{{ ansible_facts['architecture'] }}"
+
+  tasks:
+
+    - name: Messages for packages installation
+      debug:
+        msg: "Installing {{ packages }}"
+
+    - name: RPM-based packages with DNF
+      dnf:
+        name: "{{ packages }}"
+        state: absent
+      when:
+        - distro == "RedHat" or distro == "Fedora"
+...

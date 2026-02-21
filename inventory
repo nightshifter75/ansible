@@ -1,13 +1,7 @@
 [rpm]
-rhel0810
-rhel0905
-
-[apt]
-debian12
-ubun2404
+fedora
+redhat
 
 [all:vars]
 ansible_connection = ssh
-ansible_user = ansible
-ansible_ssh_pass = ansible
-ansible_become_pass = ansible
+ansible_user = gianluca

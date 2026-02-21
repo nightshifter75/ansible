@@ -5,9 +5,9 @@
 
   tasks:
 
-  - name: Create sudoers file for ansible
+  - name: Create sudoers file for gianluca
     copy:
-      content: 'ansible ALL=(ALL) NOPASSWD: ALL'
+      content: 'gianluca ALL=(ALL) NOPASSWD: ALL'
       dest: /etc/sudoers.d/ansible
       owner: root
       group: root
