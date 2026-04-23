@@ -1,11 +1,7 @@
 ---
 - name: Update Packages
-  hosts: rpm,apt
+  hosts: rpm
   become: yes
-
-  vars:
-    distro: "{{ ansible_facts['distribution'] }}"
-    version: "{{ ansible_facts['distribution_major_version'] }}"
 
   tasks:
 
@@ -17,13 +13,4 @@
       dnf:
         name: '*'
         state: latest
-      when:
-        - distro == "RedHat" or distro == "Fedora"
-
-    - name: APT-based distros
-      apt:
-        name: '*'
-        state: latest
-      when:
-        - distro == "Ubuntu" or distro == "Debian"
 ...
