@@ -52,8 +52,6 @@
       dnf:
         name: "{{ packages }}"
         state: latest
-      when:
-        - distro == "RedHat" or distro == "Fedora"
 
     - name: Intall insights-client for RHEL-based distro
       dnf:
