@@ -1,6 +1,6 @@
 ---
 - name: Set configuration files
-  hosts: rpm,apt
+  hosts: all
 
   tasks:
 
