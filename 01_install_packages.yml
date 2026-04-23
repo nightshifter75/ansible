@@ -1,6 +1,6 @@
 ---
 - name: Install packages
-  hosts: rpm,apt
+  hosts: all
   become: yes
 
   vars:
@@ -20,6 +20,15 @@
     - name: Messages for packages installation
       debug:
         msg: "Installing {{ packages }}"
+
+    - name: Install EPEL 10
+      dnf:
+        name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+        state: present
+        disable_gpg_check: yes
+      when:
+        - distro == "RedHat"
+        - version == "10"
 
     - name: Install EPEL 9
       dnf:
@@ -45,13 +54,6 @@
         state: latest
       when:
         - distro == "RedHat" or distro == "Fedora"
-
-    - name: APT-based packages
-      apt:
-        name: "{{ packages }}"
-        state: latest
-      when:
-        - distro == "Ubuntu" or distro == "Debian"
 
     - name: Intall insights-client for RHEL-based distro
       dnf:
